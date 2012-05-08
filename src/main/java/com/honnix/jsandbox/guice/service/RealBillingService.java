@@ -15,7 +15,6 @@ import com.honnix.jsandbox.guice.processor.CreditCardProcessor;
 /**
  * @author honnix
  */
-@Singleton
 public class RealBillingService implements BillingService {
     private final CreditCardProcessor processor;
 
