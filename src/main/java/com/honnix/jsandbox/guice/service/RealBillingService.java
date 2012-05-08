@@ -1,9 +1,6 @@
 package com.honnix.jsandbox.guice.service;
 
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.google.inject.name.Named;
-import com.honnix.jsandbox.guice.annotation.Paypal;
 import com.honnix.jsandbox.guice.exception.UnreachableException;
 import com.honnix.jsandbox.guice.log.TransactionLog;
 import com.honnix.jsandbox.guice.model.ChargeResult;

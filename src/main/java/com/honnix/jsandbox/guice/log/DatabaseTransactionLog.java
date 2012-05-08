@@ -1,7 +1,7 @@
 package com.honnix.jsandbox.guice.log;
 
-import com.honnix.jsandbox.guice.model.ChargeResult;
 import com.honnix.jsandbox.guice.exception.UnreachableException;
+import com.honnix.jsandbox.guice.model.ChargeResult;
 
 /**
  * @author honnix

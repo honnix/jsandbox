@@ -3,13 +3,12 @@ package com.honnix.jsandbox.guice.service;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.name.Names;
 import com.honnix.jsandbox.guice.annotation.Paypal;
 import com.honnix.jsandbox.guice.log.TransactionLog;
 import com.honnix.jsandbox.guice.processor.CreditCardProcessor;
-import org.junit.Test;
-import org.junit.Before;
 import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
 

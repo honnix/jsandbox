@@ -2,10 +2,9 @@ package com.honnix.jsandbox.guice.processor;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import com.honnix.jsandbox.guice.annotation.Paypal;
+import com.honnix.jsandbox.guice.exception.UnreachableException;
 import com.honnix.jsandbox.guice.model.ChargeResult;
 import com.honnix.jsandbox.guice.model.CreditCard;
-import com.honnix.jsandbox.guice.exception.UnreachableException;
 
 /**
  * @author honnix
