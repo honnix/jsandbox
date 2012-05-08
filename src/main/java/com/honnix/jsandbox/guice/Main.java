@@ -13,6 +13,10 @@ public class Main {
     public static void main(String[] args) {
         Injector injector = Guice.createInjector(new BillingModule());
         BillingService billingService = injector.getInstance(BillingService.class);
+        System.out.println(billingService);
         billingService.chargeOrder(new PizzaOrder(), new CreditCard());
+
+        BillingService billingService1 = injector.getInstance(BillingService.class);
+        System.out.println(billingService1);
     }
 }
