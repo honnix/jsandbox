@@ -20,6 +20,7 @@ import javax.inject.Named;
 public class BillingModule extends AbstractModule {
     @Override
     protected void configure() {
+        bind(Connection.class);
         bind(TransactionLog.class).toProvider(DatabaseTransactionLogProvider.class);
         bind(CreditCardProcessor.class).to(PaypalCreditCardProcessor.class);
         bind(BillingService.class).to(RealBillingService.class);
