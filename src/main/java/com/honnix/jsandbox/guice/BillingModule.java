@@ -5,7 +5,7 @@ import com.google.inject.Provides;
 import com.google.inject.name.Names;
 import com.honnix.jsandbox.guice.annotation.Paypal;
 import com.honnix.jsandbox.guice.log.Connection;
-import com.honnix.jsandbox.guice.log.DatabaseTransactionLogProvider;
+import com.honnix.jsandbox.guice.log.DatabaseTransactionLog;
 import com.honnix.jsandbox.guice.log.TransactionLog;
 import com.honnix.jsandbox.guice.processor.CreditCardProcessor;
 import com.honnix.jsandbox.guice.processor.PaypalCreditCardProcessor;
@@ -21,7 +21,11 @@ public class BillingModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(Connection.class);
-        bind(TransactionLog.class).toProvider(DatabaseTransactionLogProvider.class);
+        try {
+            bind(TransactionLog.class).toConstructor(DatabaseTransactionLog.class.getConstructor(Connection.class));
+        } catch (NoSuchMethodException e) {
+            addError(e);
+        }
         bind(CreditCardProcessor.class).to(PaypalCreditCardProcessor.class);
         bind(BillingService.class).to(RealBillingService.class);
         bind(String.class).annotatedWith(Names.named("Paypal API key")).toInstance("my_key");
