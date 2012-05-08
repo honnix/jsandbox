@@ -1,6 +1,7 @@
 package com.honnix.jsandbox.guice.service;
 
 import com.google.inject.Inject;
+import com.honnix.jsandbox.guice.annotation.NotOnWeekends;
 import com.honnix.jsandbox.guice.exception.UnreachableException;
 import com.honnix.jsandbox.guice.log.TransactionLog;
 import com.honnix.jsandbox.guice.model.ChargeResult;
@@ -24,6 +25,7 @@ public class RealBillingService implements BillingService {
     }
 
     @Override
+    @NotOnWeekends
     public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {
         try {
             ChargeResult result = processor.charge(creditCard, order.getAmount());
