@@ -20,7 +20,7 @@ public class RealBillingService implements BillingService {
     private final TransactionLog transactionLog;
 
     @Inject
-    public RealBillingService(@Paypal CreditCardProcessor processor, TransactionLog transactionLog) {
+    public RealBillingService(CreditCardProcessor processor, TransactionLog transactionLog) {
         this.processor = processor;
         this.transactionLog = transactionLog;
     }

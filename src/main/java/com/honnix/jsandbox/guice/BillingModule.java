@@ -22,18 +22,7 @@ public class BillingModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(Connection.class);
-        bind(TransactionLog.class).to(ConsoleTransactionLog.class);
-        bind(CreditCardProcessor.class).to(PaypalCreditCardProcessor.class);
         bind(BillingService.class).to(RealBillingService.class);
         bind(String.class).annotatedWith(Names.named("Paypal API key")).toInstance("my_key");
-    }
-
-    @Provides
-    @Paypal
-    private CreditCardProcessor providePaypalCreditCardProcessor(
-            @Named("Paypal API key") String apiKey) {
-        PaypalCreditCardProcessor processor = new PaypalCreditCardProcessor();
-        processor.setApiKey(apiKey);
-        return processor;
     }
 }
