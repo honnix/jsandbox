@@ -16,4 +16,8 @@ public class DatabaseTransactionLog implements TransactionLog {
     public void logConnectException(UnreachableException e) {
 
     }
+
+    public void setConnection(Connection connection) {
+
+    }
 }

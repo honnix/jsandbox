@@ -16,7 +16,6 @@ public class PaypalCreditCardProcessor implements CreditCardProcessor {
     }
 
     public void setApiKey(String apiKey) {
-        System.out.println(apiKey);
         this.apiKey = apiKey;
     }
 }
