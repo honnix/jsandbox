@@ -12,7 +12,17 @@ public class PaypalCreditCardProcessor implements CreditCardProcessor {
 
     @Override
     public ChargeResult charge(CreditCard creditCard, int amount) throws UnreachableException {
-        return null;
+        return new ChargeResult() {
+            @Override
+            public boolean wasSuccessful() {
+                return true;
+            }
+
+            @Override
+            public String getDeclineMessage() {
+                return "never";
+            }
+        };
     }
 
     public void setApiKey(String apiKey) {
