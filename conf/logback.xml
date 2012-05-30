@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="5 seconds">
+  <appender name="ROLLINGPROCLOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>proclog.raw</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>proclog-%d{yyyy-MM-dd_HH-mm}.%i.raw.gz</fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>1MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+    <encoder class="com.honnix.jsandbox.logback.MyLayoutWrappingEncoder">
+      <layout class="com.honnix.jsandbox.logback.MyLogLayout" />
+    </encoder>
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="ROLLINGPROCLOG" />
+  </root>
+</configuration>
