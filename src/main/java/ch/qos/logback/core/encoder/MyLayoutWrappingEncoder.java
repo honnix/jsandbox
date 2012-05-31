@@ -3,13 +3,12 @@ package ch.qos.logback.core.encoder;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
  * @author honnix
  */
-public class MyLayoutWrappingEncoder extends LayoutWrappingEncoder {
+public class MyLayoutWrappingEncoder<E> extends LayoutWrappingEncoder<E> {
     private boolean needToWriteHeader() {
         boolean result = true;
 
