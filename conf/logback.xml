@@ -8,7 +8,7 @@
         <maxFileSize>1MB</maxFileSize>
       </timeBasedFileNamingAndTriggeringPolicy>
     </rollingPolicy>
-    <encoder class="com.honnix.jsandbox.logback.MyLayoutWrappingEncoder">
+    <encoder class="ch.qos.logback.core.encoder.MyLayoutWrappingEncoder">
       <layout class="com.honnix.jsandbox.logback.MyLogLayout" />
     </encoder>
   </appender>
