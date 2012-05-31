@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
  * @author honnix
@@ -13,9 +14,8 @@ public class MyLayoutWrappingEncoder extends LayoutWrappingEncoder {
         boolean result = true;
 
         try {
-            Field field = outputStream.getClass().getDeclaredField("file");
-            field.setAccessible(true);
-            File file = (File) field.get(outputStream);
+            Method method = outputStream.getClass().getMethod("getFile");
+            File file = (File) method.invoke(outputStream);
             result = file.length() == 0;
         } catch (Exception ignored) {
         }
