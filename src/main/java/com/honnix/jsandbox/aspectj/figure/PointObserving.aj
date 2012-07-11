@@ -3,7 +3,7 @@ package com.honnix.jsandbox.aspectj.figure;
 import java.util.Iterator;
 import java.util.Vector;
 
-public aspect PointObserving {
+public privileged aspect PointObserving {
     private Vector<Screen> Point.observers = new Vector<Screen>();
     
     public static void addObserver(Point p, Screen s) {
@@ -21,6 +21,9 @@ public aspect PointObserving {
         while (iter.hasNext()) {
             updateObserver(p, iter.next());
         }
+        
+        System.out.println(p.x);
+        System.out.println(p.y);
     }
     
     static void updateObserver(Point p, Screen s) {

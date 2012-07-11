@@ -14,7 +14,7 @@ public class Test extends HelloWorld {
         Test test = new Test();
         test.setName("test");
         test.setAge(1);
-        
+
         System.out.println(Test.class.getInterfaces()[0].getName());
     }
 }
