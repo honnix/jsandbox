@@ -6,7 +6,8 @@ import org.restlet.data.Parameter;
 import org.restlet.resource.ServerResource;
 
 public class FirstServerResource extends ServerResource implements FirstResource {
-    public String hello() {
+    public HelloWorld hello() {
+        System.out.println(getRequestAttributes().get("query"));
         for (Entry<String, Object> entry : getRequestAttributes().entrySet()) {
             System.out.println(entry.getValue());
         }
@@ -15,6 +16,6 @@ public class FirstServerResource extends ServerResource implements FirstResource
             System.out.println(parameter);
         }
 
-        return "Hello World!";
+        return new HelloWorld();
     }
 }

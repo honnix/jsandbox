@@ -25,7 +25,8 @@ public class FirstApplication extends Application {
     @Override
     public Restlet createInboundRoot() {
         Router router = new Router(getContext());
-        router.attach("/hello", createGuard(FirstServerResource.class));
+        router.setDefaultMatchingQuery(true);
+        router.attach("/hello?{query}", createGuard(FirstServerResource.class));
         return router;
     }
 
